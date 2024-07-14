@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>shop
+    </title>
+    <link rel="stylesheet" href="laz.html">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/CREATINE.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/laz.js') }}" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var loginButton = document.getElementById("loginButton");
+          loginButton.addEventListener("click", function() {
+              window.location.href = "/login";  // Navigate to /login route
+          });
+      });
+  </script>
+</head>
+<body>
+    <header>
+      <nav class="nav">
+        <i class="uil uil-bars navOpenBtn"></i>
+        <a href="#" class="logo">LAZ NUTRITION.</a>
+        <ul class="nav-links">
+          <i class="uil uil-times navCloseBtn"></i>
+          {% if user.is_authenticated %}
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('shop') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
+          {% else %}
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('shop') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <button class="login" id="loginButton">Log In</button>
+          {% endif %}
+        </div>
+        <div class="bag">
+          <i class='bx bx-shopping-bag'></i>
+        </div>
+        </ul>
+        <i class="uil uil-search search-icon" id="searchIcon"></i>
+        <div class="search-box">
+          <i class="uil uil-search search-icon"></i>
+          <input type="text" placeholder="Search here..." />
+          
+        
+      </nav>
+    </header>
+    
+    <div class="h">
+        <h1>CREATINE</h1>
+    </div>
+    
+    <div class="products">
+        <div>
+            <a href="#">
+                <img src="{{ url_for('static', filename='p/creatine.png') }}" alt="whey Protein 1">
+                <h1>Optimum nutrition creatine</h1>
+                <h1>PRICE: 180.000 DT </h1>
+                <button  class="by">Add to Cart</button>
+            </a>
+        </div>
+        <div>
+            <a >
+                <img src="{{ url_for('static', filename='p/creatine1.png') }}" alt="whey Protein 2">
+                <h1>Myprotein creatine</h1>
+                <h1>PRICE: 135.000 DT </h1>
+                <button  class="by">Add to Cart</button>
+            </a>
+        </div>
+        <div>
+            <a >
+                <img src="{{ url_for('static', filename='p/creatine3.png') }}" alt="whey Protein 3">
+                <h1>Creatine drive</h1>
+                <h1>PRICE: 150,000 DT </h1>
+                <button class="by">Add to Cart</button>
+            </a>
+        </div>
+        <div>
+            <a >
+                <img src="{{ url_for('static', filename='p/creatine4.png') }}" alt="whey Protein 4">
+                <h1>Gold creatine</h1>
+                <h1>PRICE: 320.000 DT</h1>
+                <button class="by">Add to Cart</button>
+            </a>
+        </div>
+        <div>
+            <a >
+                <img src="{{ url_for('static', filename='p/creatine2.png') }}" alt="whey Protein 5">
+                <h1>Creatine Xplode</h1>
+                <h1>PRICE: 225.900 DT</h1>
+                <button  class="by">Add to Cart</button>
+            </a>
+        </div>
+        <div>
+            <a >
+                <img src="{{ url_for('static', filename='p/creatine5.png') }}" alt="whey Protein 6">
+                <h1>Impact creatine</h1>
+                <h1>PRICE: 45,000DT </h1>
+                <button  class="by">Add to Cart</button>
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2024 LAZ NUTRITION</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+            <a href="https://www.github.com/" target="_blank"><i class="fab fa-github-square"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

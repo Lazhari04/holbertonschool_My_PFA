@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>shop
+    </title>
+    <link rel="stylesheet" href="laz.html">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/shop.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/laz.js') }}" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var loginButton = document.getElementById("loginButton");
+          loginButton.addEventListener("click", function() {
+              window.location.href = "/login";  // Navigate to /login route
+          });
+      });
+  </script>
+</head>
+<body>
+    <header>
+      <nav class="nav">
+        <i class="uil uil-bars navOpenBtn"></i>
+        <a href="#" class="logo">LAZ NUTRITION.</a>
+        <ul class="nav-links">
+          <i class="uil uil-times navCloseBtn"></i>
+          {% if user.is_authenticated %}
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('shop') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
+          {% else %}
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('shop') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <button class="login" id="loginButton">Log In</button>
+          {% endif %}
+        </div>
+        <div class="bag">
+          <i class='bx bx-shopping-bag'></i>
+        </div>
+        </ul>
+        <i class="uil uil-search search-icon" id="searchIcon"></i>
+        <div class="search-box">
+          <i class="uil uil-search search-icon"></i>
+          <input type="text" placeholder="Search here..." />
+          
+        
+      </nav>
+    </header>
+    <div class="h">
+      <h1>Products: </h1>
+    </div>
+      <section class="products">
+        
+        <div class="sh">
+            <a href="{{ url_for('WHEY') }}"><img src="{{ url_for('static', filename='p/whey.png') }}" alt="Whey">
+              <h1>Whey</h1>
+            </a>
+            
+        </div>
+
+        <div class="sh">
+            <a href="{{ url_for('CREATINE') }}"><img src="{{ url_for('static', filename='p/creatine.png') }}" alt="Creatine">
+            <h1>Creatine</h1>
+            </a>
+        </div>
+
+        <div class="sh">
+            <a href="{{ url_for('VITAMIN') }}"><img src="{{ url_for('static', filename='p/vitamin.png') }}" alt="Vitamin">
+            <h1>Vitamin/Aminozzz</h1>
+            </a>
+          </div>
+          </section>
+
+
+</body>
+    <footer>
+      <div class="wrapper">
+          <div class="social-icons">
+              <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
+              <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+              <a href="https://www.github.com/" target="_blank"><i class="fab fa-github-square"></i></a>
+          </div>
+          <p>&copy; 2024 LAZ NUTRITION</p>
+      </div>
+  </footer>
+</html>

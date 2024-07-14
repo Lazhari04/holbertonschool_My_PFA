@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>laz
+    </title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/js" href="{{ url_for('static', filename='laz.js') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/laz.css') }}">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/laz.js') }}" defer></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+          var loginButton = document.getElementById("loginButton");
+          loginButton.addEventListener("click", function() {
+              window.location.href = "/login";  // Navigate to /login route
+          });
+      });
+  </script>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <i class="uil uil-bars navOpenBtn"></i>
+            <a href="#" class="logo">LAZ NUTRITION.</a>
+            <ul class="nav-links">
+              <i class="uil uil-times navCloseBtn"></i>
+              {% if user.is_authenticated %}
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('shop') }}">Products</a></li>
+              <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
+              {% else %}
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('shop') }}">Products</a></li>
+              <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <button class="login" id="loginButton">Log In</button>
+              {% endif %}
+            <div class="bag">
+              <i class='bx bx-shopping-bag'></i>
+            </div>
+            </ul>
+            <i class="uil uil-search search-icon" id="searchIcon"></i>
+            <div class="search-box">
+              <i class="uil uil-search search-icon"></i>
+              <input type="text" placeholder="Search here..." />
+              
+            
+          </nav>
+          
+    </header>
+    <section class="intro">
+      <div class="ichri">
+        {% if user.is_authenticated %}
+        <h1>Hello, {{ username }}!</h1>
+    {% else %}
+        <h1>Welcome to the Website!</h1>
+    {% endif %}
+          <img src="{{ url_for('static', filename='p/logo.png') }}" alt="">
+          <h1>LAZ NUTRITION</h1>
+          
+          <h2>Discover our exclusive range of nutritional supplements designed to optimize your overall well-being.</h2>
+          <h2>At LAZ NUTRITION, we are committed to providing you with the best products, formulated with high-quality ingredients for exceptional results.</h2>
+          <button class="b" role="button"><a href="{{ url_for('shop') }}">SHOP!</a></button>
+      </div>
+  </section>
+  <section class="about-us">
+      <h2>About Us</h2>
+      <div class="about-slider">
+          
+      </div>
+      <p>LAZ Nutrition is dedicated to providing the highest quality products to help our customers achieve their health and fitness goals. Our supplements are formulated with carefully selected ingredients and backed by science.</p>
+  </section>
+  <section class="our-supplements">
+      <h2>Our Supplements</h2>
+      <div class="supplements-container">
+          <div class="supplement">
+              <img src="{{ url_for('static', filename='p/whey.png') }}" alt="Supplement 1">
+              <h3>Proteins</h3>
+              <p>Our high-quality proteins are designed to promote muscle growth and recovery after workouts.</p>
+          </div>
+          <div class="supplement">
+              <img src="{{ url_for('static', filename='p/vitamin.png') }}" alt="Supplement 2">
+              <h3>Vitamins</h3>
+              <p>Complete your diet with our essential vitamins to maintain optimal health.</p>
+          </div>
+          <div class="supplement">
+              <img src="{{ url_for('static', filename='p/creatine.png') }}" alt="Supplement 3">
+              <h3>Amino Acids</h3>
+              <p>Our amino acids are perfect for enhancing performance and reducing muscle fatigue.</p>
+          </div>
+      </div>
+  </section>
+  <section class="why-choose-us">
+      <h2>Why Choose Us</h2>
+      <div class="reasons">
+          <div class="reason">
+              <i class="uil uil-award"></i>
+              <h3>Top Quality</h3>
+              <p>Our products are made with the best ingredients to ensure maximum effectiveness.</p>
+          </div>
+          <div class="reason">
+              <i class="uil uil-heart-medical"></i>
+              <h3>Exceptional Customer Support</h3>
+              <p>We offer dedicated customer support to answer all your questions and concerns.</p>
+          </div>
+          <div class="reason">
+              <i class="fas fa-leaf"></i>
+              <h3>Eco-friendly</h3>
+              <p>We are committed to sustainable practices to minimize our environmental impact.</p>
+          </div>
+      </div>
+  </section>
+
+</body>
+<footer>
+  <div class="wrapper">
+      <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter-square"></i></a>
+          <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+          <a href="https://www.github.com/" target="_blank"><i class="fab fa-github-square"></i></a>
+      </div>
+      <p>&copy; 2024 LAZ NUTRITION</p>
+  </div>
+</footer>
+</html>
