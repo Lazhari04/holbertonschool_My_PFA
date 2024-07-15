@@ -53,11 +53,16 @@
     </header>
     <section class="intro">
       <div class="ichri">
-        {% if user.is_authenticated %}
-        <h1>Hello, {{ username }}!</h1>
-    {% else %}
-        <h1>Welcome to the Website!</h1>
-    {% endif %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          <div class="flash-messages">
+              {% for category, message in messages %}
+                  <div class="flash-message {{ category }}">{{ message }}</div>
+              {% endfor %}
+          </div>
+      {% endif %}
+  {% endwith %}
+
           <img src="{{ url_for('static', filename='p/logo.png') }}" alt="">
           <h1>LAZ NUTRITION</h1>
           

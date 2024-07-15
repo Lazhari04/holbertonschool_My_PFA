@@ -137,7 +137,10 @@ a {
 .nav .nav-links a:focus::after {
   width: 100%;
 }
-
+.nav .bag{
+  color: #fff;
+  cursor: pointer;
+}
 /* responsive */
 @media screen and (max-width: 1160px) {
   .nav {
@@ -331,4 +334,20 @@ footer P {
 
 .register-btn:hover {
   background: #3e0f9b;
+}
+.flash-messages {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flash-message {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.flash-message.error {
+  background-color: red;
+  color: white;
 }

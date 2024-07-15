@@ -459,3 +459,21 @@ footer P {
 .social-icons a:hover {
   color: #5a16da; 
 }
+.flash-messages {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flash-message {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #3aac2b;
+}
+
+.flash-message.error {
+  background-color: red;
+  color: white;
+  align-items: center;
+}

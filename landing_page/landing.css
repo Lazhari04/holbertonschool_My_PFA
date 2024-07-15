@@ -1,0 +1,192 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background: url(background.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Header Styling */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin-right: 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #4CAF50;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: #45a049;
+}
+
+
+.intro {
+    text-align: center;
+    padding: 4rem 0;
+    color: #fff;
+}
+
+.intro img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.intro p {
+    font-size: 1.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+
+.features {
+
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #fbfbfb;
+}
+
+.feature-item {
+    margin-bottom: 2rem;
+    color: #fbfbfb;
+}
+
+.feature-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    width: 550px;
+    height: 300PX;
+
+}
+
+.feature-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #fbfbfb;
+}
+
+.feature-item p {
+    font-size: 1.4rem;
+}
+/* About Section Styling */
+.about {
+
+    padding: 4rem 0;
+    text-align: center;
+    background-color: #333333a8;
+    color: #fff;
+    
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about p {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.team-members {
+    list-style-type: none;
+    margin-bottom: 2rem;
+}
+
+.team-members li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.team-members li a {
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.team-members li a:hover {
+    text-decoration: underline;
+}
+footer {
+    background-color:rgba(98, 90, 90, 0.9);
+    color: #766d6d;
+    padding: 2px;
+    text-align: center;
+    margin-top: auto; 
+  }
+  footer P {
+    color: #ffffff;
+  }
+  .social-icons {
+    margin-top: 2px;
+  }
+  
+  .social-icons a {
+    color: #ffffff;
+    font-size: 40px;
+    margin: 0 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #5a16da;}

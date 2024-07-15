@@ -38,10 +38,11 @@ def login():
         user = User.query.filter_by(email=email).first()
 
         if not user or not check_password_hash(user.password, password):
-            flash('Login failed. Check your email and password.')
+            flash('Login failed. Check your email and password.', 'error')
             return redirect('/login')
 
         login_user(user)
+        flash('Logged in successfully!', 'success')
         return redirect('/')
 
     return render_template('login.html')
@@ -51,7 +52,7 @@ def Register():
     if request.method == 'POST':
         print("Form Data:", request.form)  # Debugging statement
         if not request.form.get('username') or not request.form.get('email') or not request.form.get('password'):
-            flash('Missing form fields')
+            flash('Missing form fields', 'error')
             return redirect('/Register')
 
         username = request.form['username']
@@ -69,6 +70,7 @@ def Register():
         db.session.commit()
 
         login_user(new_user)
+        flash('Registration successful!', 'success')
         return redirect('/')
 
     return render_template('Register.html')
@@ -77,6 +79,7 @@ def Register():
 @login_required
 def logout():
     logout_user()
+    flash('You have been logged out.', 'success')
     return redirect('/login')
 
 @app.route('/')

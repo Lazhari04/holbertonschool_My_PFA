@@ -44,7 +44,9 @@
       </nav>
     </header>
 
+
     <div class="container">
+      
       
       <div class="login-box">
         
@@ -52,6 +54,15 @@
           <form action="{{ url_for('login') }}" method="post">
             <div class="user-box">
               <div class="control">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="flash-message {{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+              {% endwith %}
                   <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
               </div>
           </div>

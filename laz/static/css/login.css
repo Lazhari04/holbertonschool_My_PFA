@@ -56,7 +56,7 @@ a {
   list-style: none;
 }
 .nav .nav-links a {
-  transition: all 0.2s linear;
+  transition: all 0.2s linear; 
 }
 .nav.openSearch .nav-links a {
   opacity: 0;
@@ -337,4 +337,22 @@ footer P {
 
 .register-btn:hover {
   background: #3e0f9b;
+}
+.flash-messages {
+  margin: 20px 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.flash-message {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #3aac2b;
+}
+
+.flash-message.error {
+  background-color: red;
+  color: white;
+  align-items: center;
 }
