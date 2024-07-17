@@ -31,11 +31,13 @@
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('shop') }}">Products</a></li>
               <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('cart') }}">Cart</a></li>
               <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
               {% else %}
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('shop') }}">Products</a></li>
               <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('cart') }}">Cart</a></li>
               <button class="login" id="loginButton">Log In</button>
               {% endif %}
             <div class="bag">
@@ -46,7 +48,6 @@
             <div class="search-box">
               <i class="uil uil-search search-icon"></i>
               <input type="text" placeholder="Search here..." />
-              
             
           </nav>
           
@@ -64,11 +65,15 @@
   {% endwith %}
 
           <img src="{{ url_for('static', filename='p/logo.png') }}" alt="">
-          <h1>LAZ NUTRITION</h1>
+           {% if user.is_authenticated %}
+           <h1>Welcome {{ user.username }}!</h1>
+           {% else %}
+           <h1>Welcome to LAZ NUTRITION!</h1>
+           {% endif %}
           
           <h2>Discover our exclusive range of nutritional supplements designed to optimize your overall well-being.</h2>
           <h2>At LAZ NUTRITION, we are committed to providing you with the best products, formulated with high-quality ingredients for exceptional results.</h2>
-          <button class="b" role="button"><a href="{{ url_for('shop') }}">SHOP!</a></button>
+
       </div>
   </section>
   <section class="about-us">

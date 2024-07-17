@@ -30,11 +30,13 @@
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('shop') }}">Products</a></li>
               <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('cart') }}">Cart</a></li>
               <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
               {% else %}
               <li><a href="{{ url_for('home') }}">Home</a></li>
               <li><a href="{{ url_for('shop') }}">Products</a></li>
               <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+              <li><a href="{{ url_for('cart') }}">Cart</a></li>
               <button class="login" id="loginButton">Log In</button>
               {% endif %}
 
@@ -57,9 +59,9 @@
         <input type="text" name="Lastname" placeholder="Last name" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="mobile" placeholder="Mobile" required>
-        <h4>how can we help you:</h4>
+        <h4>What can we help you with?</h4>
         <input class="text" type="text" name="text" placeholder="Your text here ..." required>
-        <input type="submit" value="sent" id="text">
+        <input type="submit" value="Send" id="text">
         </form>
 
     </div>

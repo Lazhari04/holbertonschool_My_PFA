@@ -30,11 +30,13 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
           {% else %}
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton">Log In</button>
           {% endif %}
         </div>
@@ -70,7 +72,7 @@
 
         <div class="sh">
             <a href="{{ url_for('VITAMIN') }}"><img src="{{ url_for('static', filename='p/vitamin.png') }}" alt="Vitamin">
-            <h1>Vitamin/Aminozzz</h1>
+            <h1>Vitamin/Amino</h1>
             </a>
           </div>
           </section>

@@ -26,10 +26,19 @@
         <a href="#" class="logo">LAZ NUTRITION.</a>
         <ul class="nav-links">
           <i class="uil uil-times navCloseBtn"></i>
+          {% if user.is_authenticated %}
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
+          <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
+          {% else %}
+          <li><a href="{{ url_for('home') }}">Home</a></li>
+          <li><a href="{{ url_for('shop') }}">Products</a></li>
+          <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton">Log In</button>
+          {% endif %}
         </div>
         <div class="bag">
           <i class='bx bx-shopping-bag'></i>

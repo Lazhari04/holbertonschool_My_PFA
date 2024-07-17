@@ -30,11 +30,13 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
           {% else %}
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton">Log In</button>
           {% endif %}
         </div>
@@ -57,54 +59,90 @@
     
     <div class="products">
         <div>
-            <a href="#">
-                <img src="{{ url_for('static', filename='p/whey1.png') }}" alt="whey Protein 1">
-                <h1>ANIMAL whey</h1>
-                <h1>PRICE: 420.00 DT </h1>
-                <button  class="by">Add to Cart</button>
+            <a>
+               <img src="{{ url_for('static', filename='p/whey1.png') }}" alt="ANIMAL whey">
+            <h1>ANIMAL whey</h1>
+            <h1>PRICE: 420.00 DT</h1> 
             </a>
+            
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="ANIMAL whey">
+                <input type="hidden" name="product_price" value="420.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey1.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
-            <a >
-                <img src="{{ url_for('static', filename='p/whey2.png') }}" alt="whey Protein 2">
-                <h1>whey protein complex</h1>
-                <h1>PRICE: 280.00 DT </h1>
-                <button  class="by">Add to Cart</button>
+            <a>
+             <img src="{{ url_for('static', filename='p/whey2.png') }}" alt="whey Protein 2">
+            <h1>whey protein complex</h1>
+            <h1>PRICE: 280.00 DT</h1>   
             </a>
+            
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="whey protein complex">
+                <input type="hidden" name="product_price" value="280.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey2.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
-            <a >
+            <a>
                 <img src="{{ url_for('static', filename='p/whey3.png') }}" alt="whey Protein 3">
-                <h1>PROSTAR WHEY PROTEIN</h1>
-                <h1>PRICE: 270,000 DT </h1>
-                <button class="by">Add to Cart</button>
+            <h1>PROSTAR WHEY PROTEIN</h1>
+            <h1>PRICE: 270.00 DT</h1>
             </a>
+            
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="PROSTAR WHEY PROTEIN">
+                <input type="hidden" name="product_price" value="270.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey3.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
-                <img src="{{ url_for('static', filename='p/whey4.png') }}" alt="whey Protein 4">
-                <h1>Impact Premium Whey</h1>
-                <h1>PRICE: 180 DT</h1>
-                <button class="by">Add to Cart</button>
+             <img src="{{ url_for('static', filename='p/whey4.png') }}" alt="whey Protein 4">
+            <h1>Impact Premium Whey</h1>
+            <h1>PRICE: 180.00 DT</h1>   
             </a>
+            
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Impact Premium Whey">
+                <input type="hidden" name="product_price" value="180.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey4.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
-                <img src="{{ url_for('static', filename='p/whey5.png') }}" alt="whey Protein 5">
-                <h1>Gold Standard 100% Whey</h1>
-                <h1>PRICE: 320.00 DT</h1>
-                <button  class="by">Add to Cart</button>
+            <img src="{{ url_for('static', filename='p/whey5.png') }}" alt="whey Protein 5">
+            <h1>Gold Standard 100% Whey</h1>
+            <h1>PRICE: 320.00 DT</h1>
             </a>
+
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Gold Standard 100% Whey">
+                <input type="hidden" name="product_price" value="320.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey5.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
-            <a >
-                <img src="{{ url_for('static', filename='p/whey6.png') }}" alt="whey Protein 6">
-                <h1>Impact Essential Gainer</h1>
-                <h1>PRICE: 150 DT </h1>
-                <button  class="by">Add to Cart</button>
+            <a>
+            <img src="{{ url_for('static', filename='p/whey6.png') }}" alt="whey Protein 6">
+            <h1>Impact Essential Gainer</h1>
+            <h1>PRICE: 150.00 DT</h1>
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Impact Essential Gainer">
+                <input type="hidden" name="product_price" value="150.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/whey6.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
     </div>
+    
     
     <footer>
         <p>© 2024 LAZ NUTRITION</p>

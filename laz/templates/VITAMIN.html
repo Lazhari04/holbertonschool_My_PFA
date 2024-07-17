@@ -30,11 +30,13 @@
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton"><a href="{{ url_for('logout') }}">logout</a></button>
           {% else %}
           <li><a href="{{ url_for('home') }}">Home</a></li>
           <li><a href="{{ url_for('shop') }}">Products</a></li>
           <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+          <li><a href="{{ url_for('cart') }}">Cart</a></li>
           <button class="login" id="loginButton">Log In</button>
           {% endif %}
         </div>
@@ -57,52 +59,85 @@
     
     <div class="products">
         <div>
-            <a href="#">
+            <a>
                 <img src="{{ url_for('static', filename='p/vitamin.png') }}" alt="whey Protein 1">
                 <h1>VITAMINS</h1>
                 <h1>PRICE: 40.00 DT </h1>
-                <button  class="by">Add to Cart</button>
             </a>
-        </div>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="VITAMINS">
+                <input type="hidden" name="product_price" value="40.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vitamin.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
+       
+    </div>
+
         <div>
             <a >
                 <img src="{{ url_for('static', filename='p/vita1.png') }}" alt="whey Protein 2">
                 <h1>Citrulline Malate</h1>
                 <h1>PRICE: 150.00 DT </h1>
-                <button  class="by">Add to Cart</button>
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Citrulline Malate">
+                <input type="hidden" name="product_price" value="150.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vita1.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
                 <img src="{{ url_for('static', filename='p/vita2.jpg') }}" alt="whey Protein 3">
                 <h1>Pre Workout C4</h1>
                 <h1>PRICE: 130,000 DT </h1>
-                <button class="by">Add to Cart</button>
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Pre Workout C4">
+                <input type="hidden" name="product_price" value="130.000">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vita2.jpg') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
                 <img src="{{ url_for('static', filename='p/vita3.png') }}" alt="whey Protein 4">
                 <h1>BCAA Xplode Energie</h1>
                 <h1>PRICE: 140.00 DT</h1>
-                <button class="by">Add to Cart</button>
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="BCAA Xplode Energie">
+                <input type="hidden" name="product_price" value=" 140.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vita3.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
                 <img src="{{ url_for('static', filename='p/vita4.png') }}" alt="whey Protein 5">
                 <h1>Marine Oméga 3</h1>
                 <h1>PRICE: 75.00 DT</h1>
-                <button  class="by">Add to Cart</button>
+   
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Marine Oméga 3">
+                <input type="hidden" name="product_price" value="75.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vita4.png') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
         <div>
             <a >
                 <img src="{{ url_for('static', filename='p/vita5.webp') }}" alt="whey Protein 6">
                 <h1>Godzilla Pre-Workout</h1>
-                <h1>PRICE: 200.00 DT </h1>
-                <button  class="by">Add to Cart</button>
+
             </a>
+            <form action="/add_to_cart" method="post">
+                <input type="hidden" name="product_name" value="Godzilla Pre-Workout">
+                <input type="hidden" name="product_price" value="200.00">
+                <input type="hidden" name="product_image" value="{{ url_for('static', filename='p/vita5.webp') }}">
+                <button type="submit" class="by">Add to Cart</button>
+            </form>
         </div>
     </div>
     

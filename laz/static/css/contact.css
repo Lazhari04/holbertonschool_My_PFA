@@ -296,7 +296,8 @@ footer P {
 }
 .contact form h4{
   color: #ffffff;
-  font-weight: 300;
+  font-weight: 100;
+  font-size: 30px;
   margin-top: 20px;
   width: 600px;
  }
@@ -339,5 +340,4 @@ footer P {
  }
 .contact form #buttom:hover{
   opacity: 0.7;
-  
 }

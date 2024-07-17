@@ -18,9 +18,54 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(200), unique=True, nullable=False)
     email = db.Column(db.String(200), unique=True, nullable=False)
     password = db.Column(db.String(200), nullable=False)
+class Cart(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    product_name = db.Column(db.String(200), nullable=False)
+    product_price = db.Column(db.Float, nullable=False)
+    product_image = db.Column(db.String(200), nullable=False)
+
+
+@app.route('/add_to_cart', methods=['POST'])
+@login_required
+def add_to_cart():
+    product_name = request.form['product_name']
+    product_price = request.form['product_price']
+    product_image = request.form['product_image']
+    cart_item = Cart(user_id=current_user.id, product_name=product_name, product_price=product_price, product_image=product_image)
+    db.session.add(cart_item)
+    db.session.commit()
+    flash('Item added to cart!', 'success')
+    return redirect('/cart')
+
+
+@app.route('/cart')
+@login_required
+def cart():
+    cart_items = Cart.query.filter_by(user_id=current_user.id).all()
+    total_price = sum(item.product_price for item in cart_items)
+    return render_template('cart.html', cart_items=cart_items, total_price=total_price, user=current_user)
+
+
+@app.route('/remove_from_cart/<int:item_id>', methods=['POST'])
+@login_required
+def remove_from_cart(item_id):
+    cart_item = Cart.query.get(item_id)
+    if cart_item and cart_item.user_id == current_user.id:
+        db.session.delete(cart_item)
+        db.session.commit()
+        flash('Item removed from cart!', 'success')
+    return redirect('/cart')
 
 
 
+@app.route('/process_payment', methods=['POST'])
+@login_required
+def process_payment():
+    Cart.query.filter_by(user_id=current_user.id).delete()
+    db.session.commit()
+    flash('Payment successful! Your order is being processed.', 'success')
+    return redirect('/')
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -45,7 +90,7 @@ def login():
         flash('Logged in successfully!', 'success')
         return redirect('/')
 
-    return render_template('login.html')
+    return render_template('login.html', user=current_user)
 
 @app.route('/Register', methods=['GET', 'POST'])
 def Register():
@@ -73,7 +118,7 @@ def Register():
         flash('Registration successful!', 'success')
         return redirect('/')
 
-    return render_template('Register.html')
+    return render_template('Register.html', user=current_user)
 
 @app.route('/logout')
 @login_required
@@ -105,6 +150,11 @@ def CREATINE():
 @app.route("/VITAMIN")
 def VITAMIN():
     return render_template('VITAMIN.html',user=current_user)
+
+@app.route("/about")
+def about():
+    return render_template('about.html',user=current_user)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
